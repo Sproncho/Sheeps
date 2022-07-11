@@ -271,16 +271,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &63300153
+--- !u!1001 &135601376
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 564079015392681650, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
+      propertyPath: Wolf
+      value: 
+      objectReference: {fileID: 1976467439}
     - target: {fileID: 1737810651971396393, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
       propertyPath: m_Name
-      value: Wolf
+      value: Wolf (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1737810651971396397, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
       propertyPath: m_RootOrder
@@ -288,15 +292,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1737810651971396397, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1610146
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 1737810651971396397, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 2.79
       objectReference: {fileID: 0}
     - target: {fileID: 1737810651971396397, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.3516693
+      value: -2.89
       objectReference: {fileID: 0}
     - target: {fileID: 1737810651971396397, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
       propertyPath: m_LocalRotation.w
@@ -326,7 +330,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2908301685258171679, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3426209606318585069, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
 --- !u!1 &314168784
 GameObject:
@@ -811,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141363893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1429467, y: -2.75993, z: 24.129494}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -930,3 +939,8 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!143 &1976467439 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 2908301685258171679, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
+  m_PrefabInstance: {fileID: 135601376}
+  m_PrefabAsset: {fileID: 0}

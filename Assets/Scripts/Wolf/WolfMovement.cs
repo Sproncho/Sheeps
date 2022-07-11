@@ -5,17 +5,29 @@ using UnityEngine;
 public class WolfMovement : MonoBehaviour
 {
     public int speed = 2;
-    public GameObject Wolf;
-
+    private CharacterController Wolf;
+    float xMov;
+    float zMov;
+    Vector3 MoveDirection;
     void Start()
     {
-
+        Wolf = GetComponent<CharacterController>();
     }
 
-    void FixedUpdate()
+    void Movement() 
     {
-        Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Wolf.transform.position += Movement * speed * Time.deltaTime;
-        Debug.Log("Movement");
+        xMov = Input.GetAxis("Horizontal");
+        zMov = Input.GetAxis("Vertical");
+        MoveDirection = new Vector3(xMov, 0f, zMov);
+        MoveDirection = transform.TransformDirection(MoveDirection);
+        if (!Wolf.isGrounded)
+        {
+            MoveDirection.y -= 3f;
+        }
+        Wolf.Move(MoveDirection * Time.deltaTime);
+    }
+    void Update()
+    {
+        Movement();
     }
 }

@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 1737810651971396395}
   - component: {fileID: 1737810651971396394}
   - component: {fileID: 564079015392681650}
-  - component: {fileID: 2178269846168696670}
+  - component: {fileID: 5463166580397645628}
+  - component: {fileID: 2908301685258171679}
+  - component: {fileID: 3426209606318585069}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -113,8 +115,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+--- !u!114 &5463166580397645628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737810651971396393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83a73ecb1305ca4eacd8dbaca28ca2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensetive: 8
   Wolf: {fileID: 1737810651971396393}
---- !u!54 &2178269846168696670
+  Camera: {fileID: 990550385907522360}
+--- !u!143 &2908301685258171679
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737810651971396393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3426209606318585069
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
