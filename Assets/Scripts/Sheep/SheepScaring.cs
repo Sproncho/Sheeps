@@ -6,10 +6,11 @@ public class SheepScaring : MonoBehaviour
 {
     SphereCollider Col;
     public GameObject Sheep;
+    SheepAI ai;
     private void Start()
     {
         Col = GetComponent <SphereCollider>();
-        
+        ai = GetComponent<SheepAI>();
     }
 
     private void OnTriggerEnter(Collider Wolf)
@@ -17,10 +18,12 @@ public class SheepScaring : MonoBehaviour
         Col.radius = 1;
         if (Wolf.gameObject.tag == "wolf")
         {
+            Debug.Log("aggred");
             Sheep.GetComponent<Renderer>(). material.color = Color.red;
-            Debug.Log("Расстояние " + Wolf.gameObject.tag + " до овцы <= 2 метра");
             Col.radius = 2;
-            Debug.Log(Col.radius);
+            Debug.Log("aggred");
+            ai.IsAggred = true;
+            ai.Wolf = Wolf.gameObject;
         }
     }
 
@@ -29,10 +32,7 @@ public class SheepScaring : MonoBehaviour
         if (Wolf.gameObject.tag == "wolf")
         {
 
-            //Пока волк в радиусе 4 от овцы она съебывает
-            Debug.Log("Расстояние " + Wolf.gameObject.tag + " до овцы <= 4 метра");
-            Debug.Log("Овца сваливает");
-            //скрипт съебывания
+            
         }
     }
 
@@ -41,11 +41,10 @@ public class SheepScaring : MonoBehaviour
         if (Wolf.gameObject.tag == "wolf")
         {
             Sheep.GetComponent<Renderer>().material.color = Color.white;
-            //как только волк покидает 4х метровый радиус
+          
             Col.radius = 1;
-            Debug.Log(Col.radius);
-            Debug.Log("Овца гуляет");
+            ai.IsAggred = false;
+            ai.Wolf = null;
         }
-        
     }
 }

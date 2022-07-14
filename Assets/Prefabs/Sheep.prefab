@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5437224346583724857}
   - component: {fileID: 5589352483237490324}
   - component: {fileID: 6247491595242910043}
+  - component: {fileID: 1473827750798980045}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: sheep
@@ -129,6 +130,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  IsAggred: 0
+--- !u!195 &1473827750798980045
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242964614737869192}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8607927017951141804
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,5 +263,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c64acae16d43640a67ce1a81a0c751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scareMat: {fileID: 2100000, guid: 4329161b71580ee4ea530cecd355445f, type: 2}
   Sheep: {fileID: 2242964614737869192}

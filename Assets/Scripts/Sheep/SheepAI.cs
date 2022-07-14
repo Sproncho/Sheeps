@@ -3,10 +3,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SheepAI : MonoBehaviour
 {
-    private float speed = 1.0f;
+    private float speed = 2.0f;
     public float rotationSpeed = 100f;
 
 
@@ -14,19 +15,24 @@ public class SheepAI : MonoBehaviour
     private bool isRotatingRight = false;
     private bool isRotatingLeft = false;
     private bool isWalking = false;
-
+    private NavMeshAgent agent;
     Rigidbody rb;
+    [HideInInspector]
+    public bool IsAggred;
+    [HideInInspector]
+    public GameObject Wolf;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>  ();
     }
 
 
     private void Update()
     {
-        if (!isWandering)
+        if (!isWandering && !IsAggred)
         {
-            StartCoroutine(Wandering());
+            //StartCoroutine(Wandering());
         }
 
         if (isRotatingRight)
@@ -43,6 +49,14 @@ public class SheepAI : MonoBehaviour
         {
             rb.velocity = (transform.forward * speed );
         }
+
+        if (IsAggred)
+        {
+            Debug.Log("running");
+            Vector3 dirToPlayer = transform.position - Wolf.transform.position;
+            Vector3 newPos = transform.position + dirToPlayer;
+            agent.SetDestination(newPos);
+        }
     }
 
     IEnumerator Wandering()
@@ -53,6 +67,10 @@ public class SheepAI : MonoBehaviour
         int walkWait = Random.Range(1, 3);
         int walkTime = Random.Range(5, 15);
 
+        if (IsAggred)
+        {
+            yield break;
+        }
         isWandering = true;
 
         yield return new WaitForSeconds(walkWait);
