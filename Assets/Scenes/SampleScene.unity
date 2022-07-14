@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 8a46c87be7a3c46c285ec83071f0afaa, type: 2}
 --- !u!1 &34339610
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &993483490
 BoxCollider:
@@ -803,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SheepPrefab: {fileID: 2242964614737869192, guid: 0df9876e2fce247a19fe184a2c63de5a, type: 3}
+  Wolf: {fileID: 1307561868}
 --- !u!4 &1141363895
 Transform:
   m_ObjectHideFlags: 0
@@ -818,6 +819,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1307561868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1737810651971396393, guid: be6a60e919bd24b84b366c9fc8b43d70, type: 3}
+  m_PrefabInstance: {fileID: 968299907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924217890
 GameObject:
   m_ObjectHideFlags: 0

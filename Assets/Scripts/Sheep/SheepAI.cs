@@ -21,10 +21,12 @@ public class SheepAI : MonoBehaviour
     public bool IsAggred;
     [HideInInspector]
     public GameObject Wolf;
+    public IEnumerator coroutine;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        agent = GetComponent<NavMeshAgent>  ();
+        agent = GetComponent<NavMeshAgent>();
     }
 
 
@@ -32,7 +34,8 @@ public class SheepAI : MonoBehaviour
     {
         if (!isWandering && !IsAggred)
         {
-            //StartCoroutine(Wandering());
+            coroutine = Wandering();
+            StartCoroutine(coroutine);
         }
 
         if (isRotatingRight)
@@ -50,12 +53,30 @@ public class SheepAI : MonoBehaviour
             rb.velocity = (transform.forward * speed );
         }
 
-        if (IsAggred)
+        float dist = Vector3.Distance(Wolf.transform.position, transform.position);
+
+
+        if (dist <= 2f)
         {
+            StopCoroutine(coroutine);
+            isWandering = false;
+            isRotatingRight = false;
+            isRotatingLeft = false;
+            isWalking = false;
+            GetComponent<Renderer>().material.color = Color.red;
             Debug.Log("running");
+            IsAggred = true;
+        }
+        if (IsAggred && !isWandering)
+        {
             Vector3 dirToPlayer = transform.position - Wolf.transform.position;
             Vector3 newPos = transform.position + dirToPlayer;
             agent.SetDestination(newPos);
+        }
+        if(dist > 4f)
+        {
+            GetComponent<Renderer>().material.color = Color.white;
+            IsAggred = false;
         }
     }
 
@@ -67,10 +88,6 @@ public class SheepAI : MonoBehaviour
         int walkWait = Random.Range(1, 3);
         int walkTime = Random.Range(5, 15);
 
-        if (IsAggred)
-        {
-            yield break;
-        }
         isWandering = true;
 
         yield return new WaitForSeconds(walkWait);
