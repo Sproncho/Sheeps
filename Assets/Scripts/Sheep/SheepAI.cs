@@ -17,8 +17,7 @@ public class SheepAI : MonoBehaviour
     private bool isWalking = false;
     private NavMeshAgent agent;
     Rigidbody rb;
-    [HideInInspector]
-    public bool IsAggred;
+    private bool isAggred;
     [HideInInspector]
     public GameObject Wolf;
     public IEnumerator coroutine;
@@ -32,7 +31,7 @@ public class SheepAI : MonoBehaviour
 
     private void Update()
     {
-        if (!isWandering && !IsAggred)
+        if (!isWandering && !isAggred)
         {
             coroutine = Wandering();
             StartCoroutine(coroutine);
@@ -65,9 +64,10 @@ public class SheepAI : MonoBehaviour
             isWalking = false;
             GetComponent<Renderer>().material.color = Color.red;
             Debug.Log("running");
-            IsAggred = true;
+            isAggred = true;
+            agent.isStopped = false;
         }
-        if (IsAggred && !isWandering)
+        if (isAggred && !isWandering)
         {
             Vector3 dirToPlayer = transform.position - Wolf.transform.position;
             Vector3 newPos = transform.position + dirToPlayer;
@@ -76,7 +76,8 @@ public class SheepAI : MonoBehaviour
         if(dist > 4f)
         {
             GetComponent<Renderer>().material.color = Color.white;
-            IsAggred = false;
+            isAggred = false;
+            agent.isStopped = true;
         }
     }
 
